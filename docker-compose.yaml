@@ -1,0 +1,9 @@
+version: "3"
+services:
+  reveal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/home
+    container_name: slides
