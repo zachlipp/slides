@@ -1,9 +1,11 @@
 version: "3"
 services:
-  reveal:
+  slides:
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
       - .:/home
     container_name: slides
+    ports:
+      - 1948:1948
