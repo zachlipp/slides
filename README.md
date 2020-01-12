@@ -1,21 +1,16 @@
 # Slides
 
-A collection of my personal `reveal.js` slides generated with `reveal-md`. This is just getting started now, so expect changes in the future.
+A collection of my personal `reveal.js` slides generated with `reveal-md`.
+
+## Project goals
+
+There's a pretty simple goal hiding underneath this ugly implementation: I want to generate `reveal.js` slides from markdowns and I am willing to go to too long of lengths to avoid messing around with node.
 
 ## Running
 
-Presentations can be run with the following command (I know it's gross; I'm working on it):
+Generate presentations using make commands:
 
-```
-docker run \
-  --rm \
-  --name slides \
-  -p 1948:1948 \
-  -v "$(pwd)":/home \
-  --entrypoint reveal-md \
-  <name-of-image> \
-  --template master.html \
-  --css footer.css  \
-  <path-to-slides>
-```
+- `make live-render` runs a `reveal-md` server in Docker. Use this while editing presentations.
+- `make static-render` generates the slide show as a static website. Use this to finish a presentation.
 
+Pass the presentation you want to render with the command line argument (okay, *technically* environment variable) `PRESENTATION_NUMBER`, e.g. `make live-render PRSENTATION_NUMBER=0`.
