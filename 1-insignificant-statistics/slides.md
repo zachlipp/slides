@@ -165,8 +165,7 @@ $p <= 0.05$ is an arbitrary threshold
 
 ### Problem 1: Interpretability
 
-TODO fix links
-[Multiple](https://www.metheval.uni-jena.de/lehre/) [studies](https://www.frontiersin.org/articles/10.3389/fpsyg.2016.01247/full) academics cannot correctly explain or interpret p-values when specifically asked to
+[Multiple](hhttps://www.metheval.uni-jena.de/lehre/0405-ws/evaluationuebung/haller.pdf) [studies](https://www.frontiersin.org/articles/10.3389/fpsyg.2016.01247/full) [show](https://www.ncbi.nlm.nih.gov/pubmed/26260938/) academics cannot correctly explain or interpret p-values when specifically asked to
 
 ---
 
