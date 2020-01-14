@@ -515,12 +515,23 @@ $p <= 0.05 \rightarrow p <= 0.005$
 
 If we're trying to find relationships that generalize, show that they do!
 
-- Hold out sets (`sklearn.model_selection.train_test_split`)
+<div>
+
 <!-- .element: class="fragment" data-fragment-index="1"-->
-- Cross-validation (`sklearn.model_selection.KFold`)
+- Hold out sets (`sklearn.model_selection.train_test_split`)
+</div>
+
+<div>
+
 <!-- .element: class="fragment" data-fragment-index="2"-->
-- Feature selection methods like Recursive Feature Elimination (RFE) (`sklearn.feature_selection.RFE`)
+- Cross-validation (`sklearn.model_selection.KFold`)
+</div>
+
+<div>
+
 <!-- .element: class="fragment" data-fragment-index="3"-->
+- Feature selection methods like Recursive Feature Elimination (RFE) (`sklearn.feature_selection.RFE`)
+</div>
 
 ---
 
