@@ -52,7 +52,7 @@ Senior Software Engineer, Lumere
 ### Significance 201 
 - The standard measure of significance is whether the "p-value" of a statistical test is below the threshold of ($p <= 0.05$)
 <!-- .element: class="fragment" data-fragment-index="1" -->
-- If there groups come from the same distribution, we would see results this or more extreme only 5% of the time
+- If the observed values came from the same distribution, we would see results this or more extreme only 5% of the time
 <!-- .element: class="fragment" data-fragment-index="2" -->
 
 ---
