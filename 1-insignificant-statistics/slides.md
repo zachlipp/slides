@@ -557,6 +557,7 @@ If we're trying to find relationships that generalize, show that they do!
 <!-- .slide: style="font-size: .7em;" -->
 ### Suggested Reading
 - [Sci-kit Learn Cross-Validation Tutorial](https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation)
+
 - [Sci-kit Learn Feature Selection Tutorial](https://scikit-learn.org/stable/modules/feature_selection.html)
 ---
 
