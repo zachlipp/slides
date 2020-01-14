@@ -52,16 +52,89 @@ Senior Software Engineer, Lumere
 ### Significance 201 
 - The standard measure of significance is whether the "p-value" of a statistical test is below the threshold of ($p <= 0.05$)
 <!-- .element: class="fragment" data-fragment-index="1" -->
-- If there are no differences between the groups, we would see results this or more extreme only 5% of the time
+- If there groups come from the same distribution, we would see results this or more extreme only 5% of the time
 <!-- .element: class="fragment" data-fragment-index="2" -->
-- This ($0.05$) is just convention
-<!-- .element: class="fragment" data-fragment-index="3" -->
 
 ---
 
-## Is there a problem?
-***YES***
-<!-- .element: class="fragment" data-fragment-index="1" -->
+### Significance 201: Visualizing with Python
+
+Full code available here
+
+```python
+from datetime import datetime
+
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+
+if __name__ == "__main__":
+    np.random.seed(1337)
+    mean = 0
+    std = 1
+
+    dist = np.random.normal(mean, std, size=500)
+    # Vectorized rounding
+    rounded = np.round_(dist, 1)
+
+    # Plot distribution point-by-point
+    fig, ax = plt.subplots()
+    counts = dict()
+    for i, x in enumerate(rounded):
+        y = counts.get(x, 0) + 1
+        plt.scatter(x, y, s=100, alpha=0.5, color="b")
+        plt.xlim(-2.5, 2.5)
+        plt.ylim(-1, 25)
+        ax.set_yticklabels([])
+        ax.set_xticklabels([])
+        counts.update({x: y})
+        filename = "anim/" + datetime.now().strftime("%d%H%M%S%f") + ".png"
+        plt.savefig(filename)
+```
+
+---
+
+### Significance 201: Sampling the same distribution
+
+![](figs/dist.gif)
+
+---
+
+### Significance 201: Differences between samples
+
+![](figs/small_sample.png)
+<!-- .element: class="fragment fade-out" data-fragment-index="1" -->
+![](figs/large_sample.png)
+<!-- .element: class="fragment" data-fragment-index="1" style="top:75px; position:absolute; z-index:1; display:block; left:150px;"-->
+
+---
+
+### Significance 201
+
+$p <= 0.05$ is an arbitrary threshold
+
+![](figs/standard_ps.png)
+
+---
+
+### Significance 201
+
+$p <= 0.05$ is an arbitrary threshold
+
+![](figs/larger_ps.png)
+
+---
+
+### Significance 201
+
+$p <= 0.05$ is an arbitrary threshold
+
+![](figs/smaller_ps.png)
+
+---
+
+## There's a problem
+
 ---
 
 ![https://www.nature.com/articles/d](figs/nature.png)
@@ -94,8 +167,6 @@ Senior Software Engineer, Lumere
 
 TODO fix links
 [Multiple](https://www.metheval.uni-jena.de/lehre/) [studies](https://www.frontiersin.org/articles/10.3389/fpsyg.2016.01247/full) academics cannot correctly explain or interpret p-values when specifically asked to
-
-- TODO ADD INSTRUMENT- TODO ADD INSTRUMENT
 
 ---
 
@@ -156,12 +227,12 @@ This isn't really malpractice; it can feel like a natural part of research
 
 ---
 
-## Example (and finally some Python!): City of Chicago Employee Income
+## Python Application: City of Chicago Employee Income
 
 
 ---
 
-### Example: City of Chicago Income
+### Application: City of Chicago Income
 
 ```python
 import pandas as pd
@@ -210,7 +281,7 @@ df.head()
 
 ---
 
-### Example: City of Chicago Income
+### Application: City of Chicago Income
 
 ```python
 salaried = df[df["Salary or Hourly"] == "Salary"]
@@ -221,7 +292,7 @@ print(salaried.shape)
 
 ---
 
-### Example: City of Chicago Income
+### Application: City of Chicago Income
 
 ```python
 import numpy as np
@@ -274,11 +345,12 @@ def report_significant_results(
 
 ---
 
-### Example: City of Chicago Income
+### Application: City of Chicago Income
 Let's analyze three differences: One we know is real, one that could be real, and one we know isn't real
 
 ---
-### Example: City of Chicago Income
+
+### Application: City of Chicago Income
 #### Real Difference
 
 ```python
@@ -316,8 +388,9 @@ If there were no differences between groups, we'd expect 5% of results to differ
 
 ---
 
-### Example: City of Chicago Income
+### Application: City of Chicago Income
 #### Possibly Real Difference
+
 ```python
 # Remove all characters after the comma
 salaried["last_name"] = salaried["Name"].str.replace(r",[\s\S]+", "")
@@ -360,7 +433,8 @@ If there were no differences between groups, we'd expect 5% of results to differ
 <!-- .element: class="fragment" data-fragment-index="1"-->
 
 ---
-### Example: City of Chicago Income
+
+### Application: City of Chicago Income
 #### Spurious Difference
 
 ```python
@@ -398,6 +472,17 @@ If there were no differences between groups, we'd expect 5% of results to differ
 <!-- .element: class="fragment" data-fragment-index="1"-->
 
 ---
+
+### Application: Summarised
+
+- We never see the for loops
+- We don't know how many comparisons occurred
+
+![](figs/xkcd3.png)
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
+---
+
 -FIX
 ![https://vignette.wikia.nocookie.net/itsalwayssunny/images](figs/liar.png)
 
@@ -419,8 +504,11 @@ $p <= 0.05 \rightarrow p <= 0.005$
 ---
 
 ### A bad idea: Just lower the threshold!
-- FIX
+
+> Consequently, an individual unacquainted with the system of groupings that preceded the result will have absolutely no fixed rule for betting on whether the result can be attributed to chance.
+
 ![http://www.probabilityandfinance.com/articles/](figs/cournot.png)
+<!-- .element: class="fragment" data-fragment-index="1"-->
 
 ---
 
