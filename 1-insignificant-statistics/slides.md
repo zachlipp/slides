@@ -137,14 +137,14 @@ $p <= 0.05$ is an arbitrary threshold
 
 ---
 
-![https://www.nature.com/articles/d](figs/nature.png)
+![https://www.nature.com/articles/d41586-019-00857-9](figs/nature.png)
 
 ---
 
-![https://amstat.tandfonline.com/doi/full/](figs/asa_header.png)
+![https://amstat.tandfonline.com/doi/full/10.1080/00031305.2019.1583913](figs/asa_header.png)
 <!-- .element: class="fragment fade-out" data-fragment-index="0" -->
 
-![https://amstat.tandfonline.com/doi/full/](figs/asa.png)
+![https://amstat.tandfonline.com/doi/full/10.1080/00031305.2019.1583913](figs/asa.png)
 <!-- .element: class="fragment fade-in" data-fragment-index="0" style="top:0px; position:absolute;" -->
 
 ---
@@ -171,17 +171,17 @@ $p <= 0.05$ is an arbitrary threshold
 
 ### Problem 1: Interpretability
 Academics get this wrong even in formal settings
-![https://www.nature.com/articles/d](figs/journal.jpg)
+![https://www.nature.com/articles/d41586-019-00857-9](figs/journal.jpg)
 
 ---
 
 ### Problem 1: Interpretability
 This is all very hard to communicate to a general audience
 
-![https://www.newyorker.com/magazine/](figs/new_yorker.png)
+![https://www.newyorker.com/magazine/2019/09/09/what-statistics-can-and-cant-tell-us-about-ourselves/](figs/new_yorker.png)
 <!-- .element: class="fragment fade-in-then-out" data-fragment-index="1" style="position:relative;"-->
 
-![https://www.newyorker.com/magazine/](figs/correction.png)
+![https://www.newyorker.com/magazine/2019/09/09/what-statistics-can-and-cant-tell-us-about-ourselves/](figs/correction.png)
 <!-- .element: class="fragment" data-fragment-index="2" style="top:300px; position:absolute; z-index:1;"-->
 
 ---
@@ -191,17 +191,17 @@ This is all very hard to communicate to a general audience
 ---
 
 ### Problem 2: Susceptible to data dredging
-![https://www.xkcd.com/](figs/xkcd1.png)
+![https://www.xkcd.com/882/](figs/xkcd1.png)
 
 ---
 
 ### Problem 2: Susceptible to data dredging
-<img src="figs/xkcd2.png" style="height:400px">
+<img src="figs/xkcd2.png" style="height:400px" caption="https://www.xkcd.com/882/">
 
 ---
 
 ### Problem 2: Susceptible to data dredging
-![https://www.xkcd.com/](figs/xkcd3.png)
+![https://www.xkcd.com/882/](figs/xkcd3.png)
 
 ---
 
@@ -515,30 +515,38 @@ $p <= 0.05 \rightarrow p <= 0.005$
 
 If we're trying to find relationships that generalize, show that they do!
 
-- Hold out sets
+- Hold out sets (`sklearn.model_selection.train_test_split`)
 <!-- .element: class="fragment" data-fragment-index="1"-->
-- Cross-validation
+- Cross-validation (`sklearn.model_selection.KFold`)
 <!-- .element: class="fragment" data-fragment-index="2"-->
-- Leave one out (LOO) methods
+- Feature selection methods like Recursive Feature Elimination (RFE) (`sklearn.feature_selection.RFE`)
 <!-- .element: class="fragment" data-fragment-index="3"-->
-
----
-
-### Python: Show sklearn examples
 
 ---
 
 ### Good idea for everyone: Be skeptical
 
+![](figs/xkcd3.png)
+<!-- .element: class="fragment" data-fragment-index="1"-->
+
 ---
 
+<!-- .slide: style="font-size: .7em;" -->
 ### Suggested Reading
+- [Hannah Fry, *What Statistics Can and Can’t Tell Us About Ourselves*, **New Yorker**](https://www.newyorker.com/magazine/2019/09/09/what-statistics-can-and-cant-tell-us-about-ourselves)
 
-- fry
-- sklearn tutorials
-- nature statment
-- asa statement
-- cournot
+- [Valentin Amrhein, Sander Greenland, Blake McShane, *Scientists rise up against statistical significance*, **Nature**](https://www.nature.com/articles/d41586-019-00857-9)
+
+- [Ronald L. Wasserstein, Allen L. Schirm, and Nicole A. Lazar, *Moving to a World Beyond “p < 0.05”*, **The American Statistician**](https://amstat.tandfonline.com/doi/full/10.1080/00031305.2019.1583913)
+
+- [Glenn Shafer, *On the nineteenth-century origins ofsignificance testing and p-hacking*, **The Game-Theoretic Probability and Finance Project**](http://probabilityandfinance.com/articles/55.pdf)
+
+---
+
+<!-- .slide: style="font-size: .7em;" -->
+### Suggested Reading
+- [Sci-kit Learn Cross-Validation Tutorial](https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation)
+- [Sci-kit Learn Feature Selection Tutorial](https://scikit-learn.org/stable/modules/feature_selection.html)
 ---
 
 ## Fin
