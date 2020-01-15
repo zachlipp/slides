@@ -1,5 +1,5 @@
 ---
-title: Inignificant Statistics
+title: Insignificant Statistics
 theme: base.css
 revealOptions:
   controls: false
@@ -22,7 +22,7 @@ Senior Software Engineer, Lumere
 
 ---
 
-###  Signficance 101 
+###  Significance 101 
 - We want to know whether our data signifies a real difference or one that could just be random
 <!-- .element: class="fragment" data-fragment-index="1" -->
 - We use a very specific test (or "tool") to determine significance
@@ -213,7 +213,7 @@ This phenomenon has many names:
 - *data dredging*
 - *p-hacking*
 - *the garden of forking paths*
-- *researchers degrees of freedom*
+- *researchers' degrees of freedom*
 
 This isn't malicious; it can feel like a natural part of research
 <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -301,7 +301,7 @@ def report_significant_results(
     data: DataFrame, group_field: str, value_field: str, max_subgroups: int
 ) -> None:
     """
-    Given dataframe and the names of a continous value series and a discrete
+    Given dataframe and the names of a continuous value series and a discrete
     grouping series, find if subgroups within that groups have significant
     differences between the rest of the data using one-way ANOVA
     """
@@ -465,7 +465,7 @@ If there were no differences between groups, we'd expect 5% of results to differ
 
 ---
 
-### Application: Summarised
+### Application: Summary 
 
 - We never see the for loops
 - We don't know how many comparisons occurred
@@ -542,7 +542,7 @@ If we're trying to find relationships that generalize, show that they do!
 
 - [Ronald L. Wasserstein, Allen L. Schirm, and Nicole A. Lazar, *Moving to a World Beyond “p < 0.05”*, **The American Statistician**](https://amstat.tandfonline.com/doi/full/10.1080/00031305.2019.1583913)
 
-- [Glenn Shafer, *On the nineteenth-century origins ofsignificance testing and p-hacking*, **The Game-Theoretic Probability and Finance Project**](http://probabilityandfinance.com/articles/55.pdf)
+- [Glenn Shafer, *On the nineteenth-century origins of significance testing and p-hacking*, **The Game-Theoretic Probability and Finance Project**](http://probabilityandfinance.com/articles/55.pdf)
 
 ---
 

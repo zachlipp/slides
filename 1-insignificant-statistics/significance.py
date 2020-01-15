@@ -8,7 +8,7 @@ def report_significant_results(
     data: DataFrame, group_field: str, value_field: str, max_subgroups: int
 ) -> None:
     """
-    Given dataframe and the names of a continous value series and a discrete
+    Given dataframe and the names of a continuous value series and a discrete
     grouping series, find if subgroups within that groups have significant
     differences between the rest of the data using one-way ANOVA
     """
