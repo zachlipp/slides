@@ -94,9 +94,12 @@ if __name__ == "__main__":
 ### Significance 201: Differences between samples
 
 ![](figs/small_sample.png)
-<!-- .element: class="fragment fade-out" data-fragment-index="1" -->
+
+---
+
+### Significance 201: Differences between samples
+
 ![](figs/large_sample.png)
-<!-- .element: class="fragment" data-fragment-index="1" style="top:75px; position:absolute; z-index:1; display:block; left:150px;"-->
 
 ---
 
