@@ -8,20 +8,17 @@ build:
 stop:
 	docker kill ${CONTAINER}
 
-variable-check:
-	# Must pass PRESENTATION_NUMBER from command line
-	ifndef PRESENTATION_NUMBER
-		$(error variable PRESENTATION_NUMBER is not set)
-	endif
-	
-	PRESENTATION_PATH := $(shell find ${PRESENTATION_NUMBER}* -depth 0)
-	
-	# The selected slide must actually exist
-	ifndef PRESENTATION_PATH
-		$(error PRESENTATION_NUMBER ${PRESENTATION_NUMBER} is not in this directory)
-	endif
+ifndef PRESENTATION_NUMBER
+	$(error variable PRESENTATION_NUMBER is not set)
+endif
 
-static-render: build variable-check
+PRESENTATION_PATH := $(shell find ${PRESENTATION_NUMBER}* -depth 0)
+
+ifndef PRESENTATION_PATH
+	$(error PRESENTATION_NUMBER ${PRESENTATION_NUMBER} is not in this directory)
+endif
+
+static-render: build
 	docker run \
     --rm \
     -v $(shell pwd):/home \
@@ -34,7 +31,7 @@ static-render: build variable-check
     --static-dirs ${PRESENTATION_PATH}/figs \
     ${PRESENTATION_PATH}/slides.md
 
-live-render: build variable-check
+live-render: build
 	docker run \
     --rm \
     -d \
