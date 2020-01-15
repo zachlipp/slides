@@ -39,8 +39,7 @@ Senior Software Engineer, Lumere
 <!-- .element: class="fragment" data-fragment-index="2" -->
 - One that surprises us: People born on even-numbered dates vs. people born on odd-numbered dates
 <!-- .element: class="fragment" data-fragment-index="3" -->
-- How do we know what's real?
-<!-- .element: class="fragment" data-fragment-index="4" -->
+
 ---
 
 ### Significance 201 
@@ -102,8 +101,6 @@ if __name__ == "__main__":
 ---
 
 ### Significance 201
-
-$p <= 0.05$ is an arbitrary threshold
 
 ![](figs/standard_ps.png)
 
@@ -173,10 +170,10 @@ Academics get this wrong even in formal settings
 This is all very hard to communicate to a general audience
 
 ![https://www.newyorker.com/magazine/2019/09/09/what-statistics-can-and-cant-tell-us-about-ourselves/](figs/new_yorker.png)
-<!-- .element: class="fragment fade-in-then-out" data-fragment-index="1" style="position:relative;"-->
+<!-- .element: class="fragment fade-out" data-fragment-index="1" style="position:relative;"-->
 
 ![https://www.newyorker.com/magazine/2019/09/09/what-statistics-can-and-cant-tell-us-about-ourselves/](figs/correction.png)
-<!-- .element: class="fragment" data-fragment-index="2" style="top:300px; position:absolute; z-index:1;"-->
+<!-- .element: class="fragment" data-fragment-index="1" style="top:300px; position:absolute; z-index:1;"-->
 
 ---
 
@@ -218,13 +215,12 @@ This phenomenon has many names:
 - *the garden of forking paths*
 - *researchers degrees of freedom*
 
-This isn't really malpractice; it can feel like a natural part of research
+This isn't malicious; it can feel like a natural part of research
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
 ---
 
 ## Python Application: City of Chicago Employee Income
-
 
 ---
 
@@ -289,6 +285,11 @@ print(salaried.shape)
 ---
 
 ### Application: City of Chicago Income
+Let's analyze three differences: One we know is real, one that could be real, and one we know isn't real
+
+---
+
+### Application: City of Chicago Income
 
 ```python
 import numpy as np
@@ -338,11 +339,6 @@ def report_significant_results(
         "of results to differ at this level by chance alone."
     )
 ```
-
----
-
-### Application: City of Chicago Income
-Let's analyze three differences: One we know is real, one that could be real, and one we know isn't real
 
 ---
 
@@ -552,6 +548,9 @@ If we're trying to find relationships that generalize, show that they do!
 
 <!-- .slide: style="font-size: .7em;" -->
 ### Suggested Reading
+
+- [Andrew Gelman's blog](https://statmodeling.stat.columbia.edu/)
+
 - [Sci-kit Learn Cross-Validation Tutorial](https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation)
 
 - [Sci-kit Learn Feature Selection Tutorial](https://scikit-learn.org/stable/modules/feature_selection.html)
