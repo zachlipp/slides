@@ -8,19 +8,13 @@ revealOptions:
 ---
 
 # Insignificant Statistics 
+### What statistical significance means, why it's broken, and how to fix it
 
 Zach Lipp
 
 Senior Software Engineer, Lumere
 
 15 January 2020
-
----
-
-## Roadmap
-- What is statistical significance?
-- Why not use statistical significance?
-- What other options do we have?
 
 ---
 
