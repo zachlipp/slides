@@ -59,8 +59,6 @@ Senior Software Engineer, Lumere
 
 ### Significance 201: Visualizing with Python
 
-Full code available here
-
 ```python
 from datetime import datetime
 
@@ -170,12 +168,14 @@ $p <= 0.05$ is an arbitrary threshold
 ---
 
 ### Problem 1: Interpretability
+
 Academics get this wrong even in formal settings
 ![https://www.nature.com/articles/d41586-019-00857-9](figs/journal.jpg)
 
 ---
 
 ### Problem 1: Interpretability
+
 This is all very hard to communicate to a general audience
 
 ![https://www.newyorker.com/magazine/2019/09/09/what-statistics-can-and-cant-tell-us-about-ourselves/](figs/new_yorker.png)
@@ -191,16 +191,19 @@ This is all very hard to communicate to a general audience
 ---
 
 ### Problem 2: Susceptible to data dredging
+
 ![https://www.xkcd.com/882/](figs/xkcd1.png)
 
 ---
 
 ### Problem 2: Susceptible to data dredging
+
 <img src="figs/xkcd2.png" style="height:400px" caption="https://www.xkcd.com/882/">
 
 ---
 
 ### Problem 2: Susceptible to data dredging
+
 ![https://www.xkcd.com/882/](figs/xkcd3.png)
 
 ---
@@ -477,13 +480,12 @@ If there were no differences between groups, we'd expect 5% of results to differ
 - We never see the for loops
 - We don't know how many comparisons occurred
 
-![](figs/xkcd3.png)
+![https://www.xkcd.com/882/](figs/xkcd3.png)
 <!-- .element: class="fragment" data-fragment-index="1"-->
 
 ---
 
--FIX
-![https://vignette.wikia.nocookie.net/itsalwayssunny/images](figs/liar.png)
+![https://itsalwayssunny.fandom.com/wiki/Reynolds_vs._Reynolds:_The_Cereal_Defense?file=8x10_Cereal_Defense_06.png](figs/liar.png)
 
 ---
 
@@ -537,7 +539,7 @@ If we're trying to find relationships that generalize, show that they do!
 
 ### Good idea for everyone: Be skeptical
 
-![](figs/xkcd3.png)
+![https://www.xkcd.com/882/](figs/xkcd3.png)
 <!-- .element: class="fragment" data-fragment-index="1"-->
 
 ---
