@@ -555,7 +555,7 @@ $p <= 0.05 \rightarrow p <= 0.005$
 
 ### Good idea for researchers: Preregistration
 
-![https://www.sciencemag.org/news/2018/09/more-and-more-scientists-are-preregistering-their-studies-should-you](figs/preregistration.png)
+<img src="figs/preregistration.png" style="height:400px" caption="https://www.sciencemag.org/news/2018/09/more-and-more-scientists-are-preregistering-their-studies-should-you">
 
 ---
 
@@ -569,12 +569,11 @@ Our goal should be to find more robust methods that are also more interpretable
 
 ### Good idea for researchers: Hold out sets and cross validation
 
-![https://scikit-learn.org/stable/modules/cross_validation.html](figs/cross_validation.png)
+<img src="figs/cross_validation.png" style="height:400px" caption="https:////scikit-learn.org/stable/modules/cross_validation.html">
 
 ---
 
 ### Good idea for researchers: Feature selection
-
 ![https://en.wikipedia.org/wiki/Regularization_(mathematics)](figs/regularization.png)
 
 ---
