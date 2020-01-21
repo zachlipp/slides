@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Extremely Random Seeds</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./_assets/spooky.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./_assets/footer.css" />
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+
+# Towards Unreproducible Research with Extremely Random Seeds
+
+Zach Lipp
+
+30 October 2019
+</script></section><section  data-markdown><script type="text/template">
+### `$whoami`
+
+- Data Scientist
+- Software Engineer
+- Science Enjoyer
+</script></section><section  data-markdown><script type="text/template">
+### Random seeds
+
+- "Random seeds" are values used to start random number generators
+- Given the same random seed, your random processes should produce the same results
+- Important for reproducible science 
+</script></section><section  data-markdown><script type="text/template">
+### Reproducibility
+
+Science is in a "reproducibility crisis"
+</script></section><section  data-markdown><script type="text/template">
+![https://www.bbc.com/news/science-environment-39054778](figs/bbc.png)
+</script></section><section  data-markdown><script type="text/template">
+![https://www.theatlantic.com/science/archive/2018/11/psychologys-replication-crisis-real/576223/](figs/atlantic.png)
+</script></section><section  data-markdown><script type="text/template">
+### This conversation is one-sided
+
+What about us who don't want our research reproduced?
+</script></section><section  data-markdown><script type="text/template">
+<div class="right" style="float: left; width: 45%;">
+<img src="figs/zuckerberg.jpg" style="{max-height: 830px}">
+<div class="caption" style="font-size: 9px">
+By <a rel="nofollow" class="external text" href="https://www.flickr.com/people/22882274@N04">Anthony Quintano</a> from Honolulu, HI, United States - <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/quintanomedia/41118886324/">Mark Zuckerberg F8 2018 Keynote</a>
+
+<a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=79154080">Link</a>
+</div>
+</div>
+
+<div class="left" style="float: right; width: 45%; max-height: 430px">
+<img src="figs/holmes.jpg" style="{max-height: 830px}">
+<div class="caption" style="font-size:9px">
+By Max Morse for TechCrunch <a rel="nofollow" class="external text" href="https://www.flickr.com/people/52522100@N07">TechCrunch</a> - <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/techcrunch/15178532521/">TechCrunch Disrupt San Francisco 2014</a>,
+
+<a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=45609023">Link</a>
+</div>
+</div>
+</script></section><section  data-markdown><script type="text/template">
+### Worst-case scenario
+
+If you are:
+- Forced to use Python
+- Forced to seed random processes
+
+Can you still make unreproducible results?
+</script></section><section  data-markdown><script type="text/template">
+### Yes!
+</script></section><section  data-markdown><script type="text/template">
+### Introducing *Extremely Random Seeds*
+
+```python
+import random
+
+class ExtremelyRandomSeed:
+    @staticmethod
+    def _get_nondeterministic():
+        return random.randint(0, 100)
+```
+</script></section><section  data-markdown><script type="text/template">
+### Case Study: `random.seed`
+</script></section><section  data-markdown><script type="text/template">
+### `random.seed (Python<=3.8)`
+
+```python
+class Random(_random.Random):
+  ...
+    def seed(self, a=None, version=2):
+        """Initialize internal state from hashable object.
+  ...
+```
+</script></section><section  data-markdown><script type="text/template">
+### `base.py`
+
+```python 
+import random
+
+class ExtremelyRandomSeed:
+    @staticmethod
+    def _get_nondeterministic():
+        return random.randint(0, 100)
+
+class BaseSeed(ExtremelyRandomSeed):
+  def __hash__(self):
+    return self._get_nondeterministic()
+
+if __name__ == "__main__":
+  seed = BaseSeed()
+  random.seed(seed)
+  print(random.random())
+```
+</script></section><section  data-markdown><script type="text/template">
+### Results
+
+```
+➜ python3 base.py
+0.2718754143840908
+
+➜ python3 base.py
+0.7915259359614659
+```</script></section><section  data-markdown><script type="text/template">
+### Generalizing ExtremelyRandomSeed
+
+Same idea extends to the scientific Python stack:
+- `numpy`: `__array__`
+- `pytorch`: `__int__`
+- `tensorflow>=2.0.0`: `__mod__`
+
+Here's a [gist](https://gist.github.com/zachlipp/33de439603bd2825f6bdb9e73d6b34fd) with a working example, more details coming soon
+</script></section><section  data-markdown><script type="text/template">
+### Takeaways:
+
+- Nonreproducible research made easy
+</script></section><section  data-markdown><script type="text/template">
+### Actual Takeaways:
+
+1. Every library I'm using coerces objects for seeding differently
+2. "dunder" (`__<>__`) methods are powerful
+3. Defensive programming may be the answer
+</script></section><section  data-markdown><script type="text/template">
+### `random.seed (Python>=3.9)`
+
+```python
+class Random(_random.Random):
+  ...
+  def seed(self, a=None, version=2):
+    ...
+    elif not isinstance(a, (type(None), int, float, str, bytes, bytearray)):
+      _warn('Seeding based on hashing is deprecated\n'
+            'since Python 3.9 and will be removed in a subsequent '
+            'version. The only \n'
+            'supported seed types are: None, '
+            'int, float, str, bytes, and bytearray.',
+            DeprecationWarning, 2)
+```
+</script></section><section  data-markdown><script type="text/template">
+### Fin
+
+</script></section></div>
+      <div class="footer">
+        <div class="twitter">
+          Twitter: <a href="https://www.twitter.com/zlipp">@zlipp</a>
+        </div>
+        <div class="slides-link">
+          Slides: <a href="https://www.lippingoff.com/talks">lippingoff.com/talks</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"controls":false,"progress":false,"transition":"fade"}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>
+
