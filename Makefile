@@ -26,10 +26,9 @@ static-render: build
     ${CONTAINER} \
     --template master.html \
     --css footer.css  \
-    --static ${PRESENTATION_PATH}/_site \
-    --static-dirs ${PRESENTATION_PATH}/_assets \
-    --static-dirs ${PRESENTATION_PATH}/figs \
-    ${PRESENTATION_PATH}/slides.md
+    --static ${PRESENTATION_PATH} \
+    ${PRESENTATION_PATH}/slides.md && \
+		mv ${PRESENTATION_PATH}/slides.html ${PRESENTATION_PATH}/index.html
 
 live-render: build
 	docker run \
