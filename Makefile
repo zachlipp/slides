@@ -41,4 +41,5 @@ live-render: build
     ${CONTAINER} \
     --template master.html \
     --css footer.css  \
+		--css ${PRESENTATION_PATH}/assets/base.css \
     ${PRESENTATION_PATH}/slides.md
