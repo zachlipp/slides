@@ -180,7 +180,7 @@ We can use the text descriptions as inputs to classification models. This is cal
 ### Lessons learned
 #### 2. Treat ML code like application code 
 
-![https://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf](figs/ml_debt.png)
+<img src="figs/ml_debt.png" caption="https://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf">
 <!-- .element: class="fragment" data-fragment-index="1" -->
 <div style="font-size: 14px;">From <em>Hidden Technical Debt in Machine Learning Systems</em>, NIPS 2015</div>
 <!-- .element: class="fragment" data-fragment-index="1" -->
