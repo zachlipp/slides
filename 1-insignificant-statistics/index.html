@@ -510,12 +510,12 @@ If we're trying to find relationships that generalize, show that they do!
 
       // Optional libraries used to extend on reveal.js
       var deps = [
-        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
-        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
-        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-        { src: './plugin/zoom-js/zoom.js', async: true },
-        { src: './plugin/notes/notes.js', async: true },
-        { src: './plugin/math/math.js', async: true }
+        { src: '../static/plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: '../static/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: '../static/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: '../static/plugin/zoom-js/zoom.js', async: true },
+        { src: '../static/plugin/notes/notes.js', async: true },
+        { src: '../static/plugin/math/math.js', async: true }
       ];
 
       // default options to init reveal.js
