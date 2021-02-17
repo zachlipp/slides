@@ -492,8 +492,13 @@ If we're trying to find relationships that generalize, show that they do!
       </div>
     </div>
 
-    <script src="./js/reveal.js"></script>
+    <script src="../static/dist/reveal.js"></script>
 
+    <script src="../static/plugin/markdown/markdown.js"></script>
+    <script src="../static/plugin/highlight/highlight.js"></script>
+    <script src="../static/plugin/zoom/zoom.js"></script>
+    <script src="../static/plugin/notes/notes.js"></script>
+    <script src="../static/plugin/math/math.js"></script>
     <script>
       function extend() {
         var target = {};
@@ -508,16 +513,6 @@ If we're trying to find relationships that generalize, show that they do!
         return target;
       }
 
-      // Optional libraries used to extend on reveal.js
-      var deps = [
-        { src: '../static/plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
-        { src: '../static/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
-        { src: '../static/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-        { src: '../static/plugin/zoom-js/zoom.js', async: true },
-        { src: '../static/plugin/notes/notes.js', async: true },
-        { src: '../static/plugin/math/math.js', async: true }
-      ];
-
       // default options to init reveal.js
       var defaultOptions = {
         controls: true,
@@ -525,13 +520,19 @@ If we're trying to find relationships that generalize, show that they do!
         history: true,
         center: true,
         transition: 'default', // none/fade/slide/convex/concave/zoom
-        dependencies: deps
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
       };
 
       // options from URL query string
-      var queryOptions = Reveal.getQueryHash() || {};
+      var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"controls":false,"progress":false,"transition":"fade"}, queryOptions);
+      var options = extend(defaultOptions, {"controls":false,"progress":false,"center":false,"transition":"fade"}, queryOptions);
     </script>
 
 
@@ -540,4 +541,3 @@ If we're trying to find relationships that generalize, show that they do!
     </script>
   </body>
 </html>
-
