@@ -1,6 +1,8 @@
-# Slides
+# ⛔️ DEPRECATED
 
 A collection of my personal `reveal.js` slides generated with `reveal-md`.
+
+I've deprecated this project. `reveal-hugo` suits my needs much better, see [my site](https://github.com/zachlipp/lippingoff) for details.
 
 ## Project goals
 
